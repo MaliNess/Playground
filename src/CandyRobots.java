@@ -33,8 +33,11 @@ public class CandyRobots {
 		Scanner in = new Scanner(System.in);
 		Random r = new Random();
 
+		System.out.println();
+		System.out.println("\t\t\tWelcome to the candy factory!");
+		System.out.println();
 		int choise; // auto or manual input;
-		do {
+		do { 		//waits correct mode input
 			System.out.print("Enter 0, if you wanna get random data, or 1, if you wanna input data yourself: ");
 			choise = in.nextInt();
 		} while (choise != 0 && choise != 1);
@@ -44,23 +47,23 @@ public class CandyRobots {
 
 		if (choise == 0) { // random input;
 			numRobots = r.nextInt(99) + 1;
-			System.out.print("Number of robots: " + numRobots);
+			System.out.print("\tNumber of robots: " + numRobots);
 			System.out.println();
 			maxCost = r.nextInt(9999) + 1; // maximum cost
-			System.out.print("Maximum cost: " + maxCost);
+			System.out.print("\tMaximum cost: " + maxCost);
 			System.out.println();
 		} else { // manual input;
-			System.out.print("Enter number of robots:");
+			System.out.print("Enter number of robots: ");
 			numRobots = in.nextInt();
-			System.out.print("Enter the maximum cost:"); // maximum cost;
+			System.out.print("Enter the maximum cost: "); // maximum cost;
 			maxCost = in.nextInt();
 			System.out.println();
 		}
 		int[][] roboStats = new int[numRobots][3]; // array of robots P, E, C:
 													// each column contains P, E, C of one robot;
-		System.out.print("If you wanna see created robots input 1, else - 0: ");
-		int choise1 = in.nextInt();
 		if (choise == 0) { // random input
+			System.out.print("If you wanna see created robots input 1, else - 0: ");
+			int choise1 = in.nextInt();
 			System.out.println();
 			for (int i = 0; i < roboStats.length; i++) {
 				// candies per hour (P)
@@ -69,8 +72,10 @@ public class CandyRobots {
 				roboStats[i][1] = r.nextInt(99) + 1;
 				// cost (C)
 				roboStats[i][2] = r.nextInt(99) + 1;
-				if(choise1==1) System.out.println("Robot #" + (i + 1) + " P=" + roboStats[i][0] + " E=" + roboStats[i][1] + " C="
-						+ roboStats[i][2]);
+				if (choise1 == 1)
+					System.out.println("Robot #" + (i + 1) + " \tP=" + roboStats[i][0] + " \tE=" + roboStats[i][1]
+							+ " \tC=" + roboStats[i][2]); // outputs robot's statistics if user entered "wanna see
+															// created robots";
 			}
 			System.out.println();
 		} else { // manual input
@@ -128,21 +133,24 @@ public class CandyRobots {
 				moneyPerCandy[pres] = roboStats[pres][2];
 		}
 
-		System.out.println("You got " + candies + " candies!"); // result: amount of candies;
+		System.out.println("\tYou got " + candies + " candies!"); // result: amount of candies;
 		System.out.println();
 
 		System.out.print("Wanna see money statistics? Print 1 for 'yes' or 0 for 'no': ");
+		// outputs the amount of money spent and money left (maxCost-gotCost)
 		if (in.nextInt() == 1) {
-			System.out.println("You spent " + cost + "$."); // additional result: final price;
-			System.out.println((maxCost - cost) + "$ left."); // additional result: money left;
+			System.out.println("\tYou spent " + cost + "$."); // additional result: final price;
+			System.out.println("\t" + (maxCost - cost) + "$ left."); // additional result: money left;
 		}
 		System.out.println();
 		System.out.print("Wanna see robots' statistics? Print 1 for 'yes' or 0 for 'no': ");
+		// outputs worked hours and produced candies for each worked robot
 		if (in.nextInt() == 1) {
+			System.out.println();
 			for (int i = 0; i < numRobots; i++) {
 				if (stats[i][0] != 0)
-					System.out.println("Robot #" + (i + 1) + " worked " + stats[i][0] + " hours and produced "
-							+ stats[i][1] + " candies.");
+					System.out.println("Robot #" + (i + 1) + "\tworked\t" + stats[i][0] + "\thours and produced\t"
+							+ stats[i][1] + "\tcandies.");
 			}
 		}
 
