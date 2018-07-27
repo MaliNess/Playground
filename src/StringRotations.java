@@ -7,6 +7,7 @@ public class StringRotations {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		
+		System.out.print("Enter string: ");
 		String base = in.nextLine();
 		if(base.length()!=0) {
 			char[] characters = base.toCharArray();
