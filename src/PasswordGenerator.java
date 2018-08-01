@@ -19,6 +19,8 @@ public class PasswordGenerator {
 		// проверяем формулы
 		// System.out.println((char)('A'+0) + " " + (char)('A'+25) + " " +
 		// (char)('a'+(26-26)) + " " + (char)('a'+(51-26)));
+		
+		in.close();
 	}
 
 	public static String generatePassword(int size) {
