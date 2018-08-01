@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /*
  	SoloLearn problem Paranoia
@@ -53,7 +54,15 @@ public class Paranoia {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner in = new Scanner(System.in);
+		String input = "";
+		String temp="";
+		while(temp!="stop") {
+			temp = in.next();
+			if(temp=="stop") System.out.println("Caught");
+			input += temp + " ";
+		}
+		System.out.println("OK");
 	}
 
 }
