@@ -57,11 +57,12 @@ public class Paranoia {
 		Scanner in = new Scanner(System.in);
 		String input = "";
 		String temp="";
-		while(temp!="stop") {
+		while(!temp.equals("stop")) {
 			temp = in.next();
-			if(temp=="stop") System.out.println("Caught");
-			input += temp + " ";
+			temp+= in.nextLine();
+			if(!temp.equals("stop")) input += temp + " ";
 		}
+		System.out.println(input);
 		System.out.println("OK");
 	}
 
